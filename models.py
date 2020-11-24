@@ -51,7 +51,7 @@ class ToDoModel:
         self.conn.close()
 
     def get_by_id(self, _id):
-        where_clause = f"AND id={_id}"
+        where_clause = f"AND id={_id} "
         return self.list_items(where_clause)
 
     def create(self, params):

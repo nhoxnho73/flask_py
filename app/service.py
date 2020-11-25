@@ -1,4 +1,5 @@
-from demo_flask.app.models import ToDoModel
+from demo_flask.app.models import ToDoModel, User
+
 
 class ToDoService:
     def __init__(self):
@@ -12,6 +13,18 @@ class ToDoService:
 
     def delete(self, item_id):
         return self.model.delete(item_id)
+
+    def list(self):
+        response = self.model.list_items()
+        return response
+
+
+class UserService:
+    def __init__(self):
+        self.model = User()
+
+    def create(self, params):
+        return self.model.create(params)
 
     def list(self):
         response = self.model.list_items()
